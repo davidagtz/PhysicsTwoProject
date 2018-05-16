@@ -5,6 +5,8 @@ var fs = require('fs');
 
 var app = express();
 
+var __DEV__ = true;
+
 app.use(express.static("www"));
 
 var index = pug.compileFile("templates/index.pug");
@@ -15,7 +17,14 @@ sass2css("www/css/main.css", sass.renderSync({
 
 
 app.get("/", (req, res) => {
-    res.send(index({}));
+    if(__DEV__){
+        sass2css("www/css/main.css", sass.renderSync({
+            file: "sass/main.sass"
+        }));
+        res.send(pug.compileFile("templates/index.pug")({}));
+    }
+    else
+        res.send(index({}));
 });
 
 app.listen(80);
