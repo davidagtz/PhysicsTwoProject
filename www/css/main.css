@@ -1,25 +1,23 @@
 html, body {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 nav {
-    background-color: #c8102e;
-    padding: 0;
-    margin: 0;
+  background-color: #c8102e;
+  padding: 0;
+  margin: 0;
 }
-
 nav ul {
-    margin: 0;
-    list-style-type: none;
-    color: #ffffff;
-    background-color: #888b8d;
+  margin: 0;
+  list-style-type: none;
+  color: #ffffff;
+  background-color: #888b8d;
 }
-
 nav ul li {
-    display: inline-block;
+  display: inline-block;
 }
-
-nav ul li :hover{
-    display: inline-block;
+nav ul li:hover {
+  display: inline-block;
+  background-color: #54585a;
 }
