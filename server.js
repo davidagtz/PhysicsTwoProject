@@ -13,6 +13,7 @@ var index = pug.compileFile("templates/index.pug");
 var notFound = pug.compileFile("templates/404.pug");
 var aboutme = pug.compileFile("templates/aboutme.pug");
 var lab = pug.compileFile("templates/lab.pug");
+var apreview = pug.compileFile("templates/apreview.pug");
 
 sass2css("www/css/main.css", sass.renderSync({
     file: "sass/main.sass"
@@ -24,6 +25,9 @@ sass2css("www/css/404.css", sass.renderSync({
 sass2css("www/css/lab.css", sass.renderSync({
     file: "sass/lab.sass"
 }));
+sass2css("www/css/apreview.css", sass.renderSync({
+    file: "sass/apreview.sass"
+}));
 
 app.get("/", (req, res) => {
     if(__DEV__){
@@ -34,6 +38,18 @@ app.get("/", (req, res) => {
     }
     else
         res.send(index({}));
+});
+
+app.get("/apreview", (req, res) => {
+    if(__DEV__){
+        sass2css("www/css/apreview.css", sass.renderSync({
+            file: "sass/apreview.sass"
+        }));
+        res.send(pug.compileFile("templates/apreview.pug")({}));
+    }
+    else {
+        res.send(apreview({}));
+    }
 });
 
 app.get("/lab/:id", (req, res) => {
@@ -49,7 +65,9 @@ app.get("/lab/:id", (req, res) => {
         }));
     }
     else
-        res.send(index({}));
+        res.send(lab({
+            file: "lab" + req.params.id
+        }));
 });
 
 app.get("*", (req, res) => {

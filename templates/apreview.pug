@@ -1,0 +1,17 @@
+extends template.pug
+
+block content
+    div(id="project")
+        h1 Our Project Video
+        iframe(src="https://www.youtube.com/embed/GH0wU6mg2Vk" allowfullscreen)
+    div(id="right")
+        h1 More Information on Fiber Optics
+        iframe(src="/res/info.pdf")
+    div(id="bottom")
+        h1 AP Questions
+        iframe(src="/res/ap.pdf")
+        br
+        br
+
+block append head
+    link(rel="stylesheet" href="/css/apreview.css")
