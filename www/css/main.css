@@ -54,3 +54,10 @@ nav ul li .dropdown {
   position: relative;
   float: none;
 }
+
+#container {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1%;
+}

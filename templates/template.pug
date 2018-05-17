@@ -1,0 +1,21 @@
+html
+    head
+        block head
+            title Physics II - David Gutierrez
+            link(rel='stylesheet' href='css/main.css')
+    body
+        nav
+            h1 Physics II Portfolio
+            ul
+                li 
+                    a(href="/") Home
+                li 
+                    a(href="/aboutme") About Me
+                li 
+                    a(href="/labs") Labs
+                    - var labs = ["Mass vs. Volume", "Hydrostatic Pressure", "Ideal Gasses", "Triboelectric Effect", "Charge Distrobution", "Electric Field Mapping", "RC Circuits", "Faraday's Law Simulation", "Apertures", "Law of Reflection", "Snell's Law", "Total Internal Reflection", "Covnex and Concave Lenses", "Images of Convex Images", "Images of Concave Images", "Hollow Lens", "Mallus's Law", "Slit Interference", "Photoelectric Effect"]
+                    ul(class='dropdown')
+                        each val in labs
+                            li= val
+        div(id="container")
+            block content
