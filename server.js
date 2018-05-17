@@ -82,7 +82,10 @@ app.get("*", (req, res) => {
     }
 });
 
-app.listen(process.env.PORT || 3000);
+var port = process.env.PORT || 8000;
+app.listen(port, ()=>{
+    console.log("Server is running on "+port);
+});
 // app.listen(80);
 
 function sass2css(path, res) {
