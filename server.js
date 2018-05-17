@@ -82,7 +82,7 @@ app.get("*", (req, res) => {
     }
 });
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 3000);
 // app.listen(80);
 
 function sass2css(path, res) {
