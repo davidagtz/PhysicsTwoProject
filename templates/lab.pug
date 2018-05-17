@@ -1,0 +1,7 @@
+extends template.pug
+
+block content
+    iframe(src="/res/labs/"+ file+".pdf" id="lab")
+
+block append head
+    link(rel="stylesheet" href="/css/lab.css")

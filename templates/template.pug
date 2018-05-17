@@ -2,7 +2,7 @@ html
     head
         block head
             title Physics II - David Gutierrez
-            link(rel='stylesheet' href='css/main.css')
+            link(rel='stylesheet' href='/css/main.css')
     body
         nav
             h1 Physics II Portfolio
@@ -15,7 +15,10 @@ html
                     a(href="/labs") Labs
                     - var labs = ["Mass vs. Volume", "Hydrostatic Pressure", "Ideal Gasses", "Triboelectric Effect", "Charge Distrobution", "Electric Field Mapping", "RC Circuits", "Faraday's Law Simulation", "Apertures", "Law of Reflection", "Snell's Law", "Total Internal Reflection", "Covnex and Concave Lenses", "Images of Convex Images", "Images of Concave Images", "Hollow Lens", "Mallus's Law", "Slit Interference", "Photoelectric Effect"]
                     ul(class='dropdown')
-                        each val in labs
-                            li= val
+                        - for(var i = 0; i < labs.length; i++)
+                            li
+                                a(href="/lab/"+(i+1))= labs[i]
+                li
+                    a(href="/apreview") AP Review Project
         div(id="container")
             block content
