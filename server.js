@@ -82,7 +82,8 @@ app.get("*", (req, res) => {
     }
 });
 
-app.listen(80);
+app.listen(process.env.PORT);
+// app.listen(80);
 
 function sass2css(path, res) {
     fs.writeFileSync(path, res.css.toString());
