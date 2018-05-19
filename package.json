@@ -10,11 +10,12 @@
   "author": "David Gutierrez",
   "license": "ISC",
   "dependencies": {
+    "dddos": "^0.1.2",
     "express": "^4.16.3",
     "pug": "^2.0.3",
     "sass": "^1.3.2"
   },
   "engines": {
-    "node":"9.4.0"
+    "node": "9.4.0"
   }
 }

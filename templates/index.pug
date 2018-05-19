@@ -1,4 +1,13 @@
 extends template.pug
 
 block content
-    img(src="https://opencollective.com/pug/sponsor/0/avatar.svg")
+    div(id="slides")
+        div(id="slideshow")
+            img(src="/res/slideshow/loading.gif" id="shown")
+            div(id="buttons")
+    div(id="resume")
+        h1 David's Physics Resume
+
+block append head
+    link(rel="stylesheet" href="/css/index.css")
+    script(src="/js/index.js")

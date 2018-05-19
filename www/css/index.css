@@ -1,0 +1,47 @@
+#container > * {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+#slides {
+  height: 75%;
+  width: 25%;
+  position: relative;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  margin-right: 5%;
+}
+
+#slideshow {
+  height: 100%;
+  width: 100%;
+  border: 1px solid;
+  background-color: black;
+  position: absolute;
+}
+#slideshow #shown {
+  display: block;
+  position: relative;
+  margin: auto;
+  max-height: 84%;
+  max-width: 100%;
+  align-content: center;
+}
+#slideshow #buttons {
+  height: 16%;
+  border: 1px solid;
+  width: 100%;
+  margin: -1px;
+  background-color: #333;
+  position: absolute;
+  bottom: 0;
+}
+#slideshow #buttons img {
+  display: inline-block;
+  height: 100%;
+  margin: auto;
+}
+#slideshow #buttons img:hover {
+  -webkit-filter: saturate(250%);
+  filter: saturate(250%);
+}

@@ -2,10 +2,17 @@ var express = require('express');
 var pug = require('pug');
 var sass = require('sass');
 var fs = require('fs');
+var dddos = require('dddos');
 
 var app = express();
 
 var __DEV__ = true;
+
+app.use(new dddos({
+    logFunction: (IP, path, weight, rule) => {
+        console.log(IP);
+    }
+}).express('ip', 'path'));
 
 app.use(express.static("www"));
 
@@ -28,11 +35,17 @@ sass2css("www/css/lab.css", sass.renderSync({
 sass2css("www/css/apreview.css", sass.renderSync({
     file: "sass/apreview.sass"
 }));
+sass2css("www/css/index.css", sass.renderSync({
+    file: "sass/index.sass"
+}));
 
 app.get("/", (req, res) => {
     if(__DEV__){
         sass2css("www/css/main.css", sass.renderSync({
             file: "sass/main.sass"
+        }));
+        sass2css("www/css/index.css", sass.renderSync({
+            file: "sass/index.sass"
         }));
         res.send(pug.compileFile("templates/index.pug")({}));
     }
@@ -82,7 +95,7 @@ app.get("*", (req, res) => {
     }
 });
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8080;
 app.listen(port, ()=>{
     console.log("Server is running on "+port);
 });
