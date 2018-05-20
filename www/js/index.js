@@ -1,4 +1,4 @@
-var imgs = ['aviator.jpg', 'trump.png', 'mont.jpg', 'sat.jpg'];
+var imgs = ['andres.jpg', 'barco.png', 'mont.jpg', 'sat.jpg', 'pinata.jpg'];
 
 window.onload = ()=>{
     window.onresize = () => {
