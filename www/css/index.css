@@ -3,6 +3,13 @@
   vertical-align: text-top;
 }
 
+#resume {
+  width: 70%;
+}
+#resume p {
+  text-indent: 1em;
+}
+
 #slides {
   height: 75%;
   width: 25%;
@@ -44,4 +51,8 @@
 #slideshow #buttons img:hover {
   -webkit-filter: saturate(250%);
   filter: saturate(250%);
+}
+
+#interests * {
+  max-width: 90%;
 }

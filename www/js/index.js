@@ -1,6 +1,17 @@
 var imgs = ['aviator.jpg', 'trump.png', 'mont.jpg', 'sat.jpg'];
 
 window.onload = ()=>{
+    window.onresize = () => {
+        var width = 0;
+        $("#buttons").children().each((i, child) => {
+            width += $(child).width();
+        });
+        if(width > $("#buttons").width()){
+            var scale = $("#buttons").width() / width;
+            $("#buttons").height($("#buttons").height() * scale);
+        }
+    }
+
     fit = () => {
         let s = $("#shown");
         s.css("margin-top", (s.parent().height() - $("#buttons").height() - s.height()) / 2 + "px")
@@ -24,6 +35,8 @@ window.onload = ()=>{
             set(imgs[i])
         }
     }
+
+    window.onresize();
 
     setInterval(() => {
         set(imgs[on]);

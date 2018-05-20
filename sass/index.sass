@@ -1,47 +1,50 @@
-$buttonHeight : 16%
-$buttonColor : #333
-$filter : 250%
-$slideWidth : 25%
-$slideHeight : 75%
+#container 
+	> * 
+		display: inline-block
+		vertical-align: text-top
 
-#container
-    > *
-        display: inline-block
-        vertical-align: text-top
+#resume
+	width: 70%
+	p
+		text-indent: 1em
 
-#slides
-    height: $slideHeight
-    width: $slideWidth
-    position: relative
-    margin-right: 2px
-    margin-bottom: 2px
-    margin-right: 5%
-    
+#slides 
+	height: 75%
+	width: 25%
+	position: relative
+	margin-right: 2px
+	margin-bottom: 2px
+	margin-right: 5%
+
 #slideshow
-    height: 100%
-    width: 100%
-    border: 1px solid
-    background-color: black
-    position: absolute
-    #shown
-        display: block
-        position: relative
-        margin: auto
-        max-height: 100% - $buttonHeight
-        max-width: 100%
-        align-content: center
-    #buttons
-        height: $buttonHeight
-        border: 1px solid
-        width: 100%
-        margin: -1px
-        background-color: $buttonColor
-        position: absolute
-        bottom: 0
-        img
-            display: inline-block
-            height: 100%
-            margin: auto
-            &:hover
-                -webkit-filter: saturate($filter);
-                filter: saturate($filter);
+	height: 100%
+	width: 100%
+	border: 1px solid
+	background-color: black
+	position: absolute
+	#shown 
+		display: block
+		position: relative
+		margin: auto
+		max-height: 84%
+		max-width: 100%
+		align-content: center
+	#buttons 
+		height: 16%
+		border: 1px solid
+		width: 100%
+		margin: -1px
+		background-color: #333
+		position: absolute
+		bottom: 0
+		img 
+			display: inline-block
+			height: 100%
+			margin: auto
+			&:hover 
+				-webkit-filter: saturate(250%)
+				filter: saturate(250%)
+
+#interests 
+	* 
+		max-width: 90%

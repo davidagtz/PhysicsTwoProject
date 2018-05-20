@@ -22,31 +22,17 @@ var aboutme = pug.compileFile("templates/aboutme.pug");
 var lab = pug.compileFile("templates/lab.pug");
 var apreview = pug.compileFile("templates/apreview.pug");
 
-sass2css("www/css/main.css", sass.renderSync({
-    file: "sass/main.sass"
-}));
 
-sass2css("www/css/404.css", sass.renderSync({
-    file: "sass/404.sass"
-}));
-sass2css("www/css/lab.css", sass.renderSync({
-    file: "sass/lab.sass"
-}));
-sass2css("www/css/apreview.css", sass.renderSync({
-    file: "sass/apreview.sass"
-}));
-sass2css("www/css/index.css", sass.renderSync({
-    file: "sass/index.sass"
-}));
+sass2css("sass/main.sass", "www/css/main.css");
+sass2css("sass/404.sass", "www/css/404.css");
+sass2css("sass/lab.sass", "www/css/lab.css");
+sass2css("sass/apreview.sass", "www/css/apreview.css");
+sass2css("sass/index.sass", "www/css/index.css");
 
 app.get("/", (req, res) => {
     if(__DEV__){
-        sass2css("www/css/main.css", sass.renderSync({
-            file: "sass/main.sass"
-        }));
-        sass2css("www/css/index.css", sass.renderSync({
-            file: "sass/index.sass"
-        }));
+        sass2css("sass/main.sass", "www/css/main.css");
+        sass2css("sass/index.sass", "www/css/index.css");
         res.send(pug.compileFile("templates/index.pug")({}));
     }
     else
@@ -55,9 +41,8 @@ app.get("/", (req, res) => {
 
 app.get("/apreview", (req, res) => {
     if(__DEV__){
-        sass2css("www/css/apreview.css", sass.renderSync({
-            file: "sass/apreview.sass"
-        }));
+        sass2css("sass/main.sass", "www/css/main.css");
+        sass2css("sass/apreview.sass", "www/css/apreview.css");
         res.send(pug.compileFile("templates/apreview.pug")({}));
     }
     else {
@@ -67,12 +52,8 @@ app.get("/apreview", (req, res) => {
 
 app.get("/lab/:id", (req, res) => {
     if (__DEV__) {
-        sass2css("www/css/main.css", sass.renderSync({
-            file: "sass/main.sass"
-        }));
-        sass2css("www/css/lab.css", sass.renderSync({
-            file: "sass/lab.sass"
-        }));
+        sass2css("sass/main.sass", "www/css/main.css");
+        sass2css("sass/lab.sass", "www/css/lab.css");
         res.send(pug.compileFile("templates/lab.pug")({
             file: "lab" + req.params.id
         }));
@@ -85,9 +66,8 @@ app.get("/lab/:id", (req, res) => {
 
 app.get("*", (req, res) => {
     if(__DEV__){
-        sass2css("www/css/404.css", sass.renderSync({
-            file: "sass/404.sass"
-        }));
+        sass2css("sass/404.sass", "www/css/404.css");
+        sass2css("sass/main.sass", "www/css/main.css");
         res.send(pug.compileFile("templates/404.pug")({}));
     }
     else{
@@ -95,12 +75,13 @@ app.get("*", (req, res) => {
     }
 });
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 80;
 app.listen(port, ()=>{
     console.log("Server is running on "+port);
 });
-// app.listen(80);
 
 function sass2css(path, res) {
-    fs.writeFileSync(path, res.css.toString());
+    fs.writeFileSync(res, sass.renderSync({
+        file:path
+    }).css.toString());
 }
