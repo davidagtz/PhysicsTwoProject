@@ -99,3 +99,8 @@ footer #contact * {
 footer #contact a {
   color: white;
 }
+footer #contact > * {
+  display: inline-block;
+  margin-right: 1%;
+  vertical-align: text-top;
+}

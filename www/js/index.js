@@ -5,11 +5,13 @@ window.onload = ()=>{
         var width = 0;
         $("#buttons").children().each((i, child) => {
             width += $(child).width();
-        });
-        if(width > $("#buttons").width()){
+		});
+		let buttonWidth = $("#buttons").width();
+        if(width > buttonWidth){
             var scale = $("#buttons").width() / width;
             $("#buttons").height($("#buttons").height() * scale);
-        }
+		}
+		$("#buttons :first-child").css("margin-left", (buttonWidth - width) / 2 + "px")
     }
 
     fit = () => {
