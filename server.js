@@ -18,7 +18,6 @@ app.use(express.static("www"));
 
 var index = pug.compileFile("templates/index.pug");
 var notFound = pug.compileFile("templates/404.pug");
-var aboutme = pug.compileFile("templates/aboutme.pug");
 var lab = pug.compileFile("templates/lab.pug");
 var apreview = pug.compileFile("templates/apreview.pug");
 
