@@ -1,4 +1,4 @@
-var imgs = ['andres.jpg', 'barco.png', 'mont.jpg', 'sat.jpg', 'pinata.jpg'];
+var imgs = ['andres.jpg', 'barco.jpg', 'good.png', 'sat.jpg', 'pinata.jpg'];
 
 window.onload = ()=>{
     window.onresize = () => {
@@ -11,7 +11,8 @@ window.onload = ()=>{
             var scale = $("#buttons").width() / width;
             $("#buttons").height($("#buttons").height() * scale);
 		}
-		$("#buttons :first-child").css("margin-left", (buttonWidth - width) / 2 + "px")
+		$("#buttons :first-child").css("margin-left", (buttonWidth - width) / 2 + "px");
+		$("#shown").css("max-height", $("#slideshow").height() - $("#buttons").height());
     }
 
     fit = () => {
