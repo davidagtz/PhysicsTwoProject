@@ -36,21 +36,45 @@ window.onload = () => {
     var path = "/res/slideshow/";
     var on = 0;
 
-    for(var i = 0; i < imgs.length; i++) {
-        let img = $("<img>");
-        img.attr("src",  path + imgs[i]);
+	function loadImages(i, callb) {
+		if(i >= imgs.length){
+			callb();
+			return;
+		}
+		let img = new Image();
+		img.src =  path + imgs[i];
 
-        img.click((handler) => {
-            set(img);
-        });
+		$(img).click((handler) => {
+			set(img);
+		});
 
-        imgs[i] = img;
+		imgs[i] = img;
 
-        $('#buttons').append(img);
-        if(i == 0){
-            set(imgs[i])
-        }
-    }
+		$('#buttons').append(img);
+		if (i == 0) {
+			set(imgs[i])
+		}
+		img.onload = () => {
+			loadImages(i + 1, callb);
+		}
+	}
+    // for(var i = 0; i < imgs.length; i++) {
+    //     let img = $("<img>");
+    //     img.attr("src",  path + imgs[i]);
+
+    //     img.click((handler) => {
+    //         set(img);
+    //     });
+
+    //     imgs[i] = img;
+
+    //     $('#buttons').append(img);
+    //     if(i == 0){
+    //         set(imgs[i])
+    //     }
+	// }
+	
+	loadImages(0, window.onresize);
 
     setInterval(() => {
         set(imgs[on]);
