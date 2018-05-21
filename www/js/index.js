@@ -11,7 +11,8 @@ window.onload = ()=>{
             var scale = $("#buttons").width() / width;
             $("#buttons").height($("#buttons").height() * scale);
 		}
-		$("#buttons :first-child").css("margin-left", (buttonWidth - width) / 2 + "px");
+		else if(width < buttonWidth)
+			$("#buttons :first-child").css("margin-left", (buttonWidth - width) / 2 + "px");
 		$("#shown").css("max-height", $("#slideshow").height() - $("#buttons").height());
     }
 
