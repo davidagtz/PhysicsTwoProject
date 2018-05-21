@@ -66,7 +66,7 @@ window.onload = () => {
 
 
 	window.onresize();
-	setTimeout(() => { window.onresize(); }, 25);
+	setTimeout(() => { window.onresize(); }, 200);
 	
 }
 
