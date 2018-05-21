@@ -1,19 +1,31 @@
 var imgs = ['andres.jpg', 'barco.jpg', 'good.png', 'sat.jpg', 'pinata.jpg'];
+var origH;
 
-window.onload = ()=>{
+window.onload = () => {
+	origH = ($("#buttons").height() / $("#slideshow").height()) * 100 + "%";
     window.onresize = () => {
-        var width = 0;
-        $("#buttons").children().each((i, child) => {
-            width += $(child).width();
-		});
-		let buttonWidth = $("#buttons").width();
-        if(width > buttonWidth){
-            var scale = $("#buttons").width() / width;
-            $("#buttons").height($("#buttons").height() * scale);
+		$("#buttons").height(origH);
+		var notFit = false;
+		while (true) {
+			var imgswidth = 0;
+			$("#buttons").children().each((i, child) => {
+				imgswidth += $(child).width();
+			});
+			let barWidth = $("#buttons").width();
+			if (imgswidth < barWidth) {
+				$("#buttons :first-child").css("margin-left", ((barWidth - imgswidth) / 2) + "px");
+			}
+			else if (imgswidth > barWidth) {
+				var scale = $("#buttons").width() / imgswidth;
+				$("#buttons").height($("#buttons").height() * scale);
+				if (imgswidth > barWidth) {
+					$("#buttons").height($("#buttons").height() - 1);
+					continue;
+				}
+			}
+			$("#shown").css("max-height", $("#slideshow").height() - $("#buttons").height());
+			break;	
 		}
-		else if(width < buttonWidth)
-			$("#buttons :first-child").css("margin-left", (buttonWidth - width) / 2 + "px");
-		$("#shown").css("max-height", $("#slideshow").height() - $("#buttons").height());
     }
 
     fit = () => {

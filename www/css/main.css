@@ -81,6 +81,7 @@ footer {
   color: white;
   margin-top: 1%;
   overflow-y: hidden;
+  padding-bottom: 1%;
 }
 footer #contact {
   margin-left: 5%;
