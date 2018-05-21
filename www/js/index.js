@@ -52,8 +52,6 @@ window.onload = () => {
         }
     }
 
-    window.onresize();
-
     setInterval(() => {
         set(imgs[on]);
         on++;
@@ -64,7 +62,13 @@ window.onload = () => {
         $("#shown").attr("src", $(img).attr("src"));
         fit();
         on = imgs.indexOf(img);
-    }
+	}
+
+
+	window.onresize();
+	setTimeout(() => { window.onresize(); }, 25);
+	
 }
+
 
 

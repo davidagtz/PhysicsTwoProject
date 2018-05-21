@@ -10,8 +10,9 @@ var __DEV__ = true;
 
 app.use(new dddos({
     logFunction: (IP, path, weight, rule) => {
-        console.log(IP);
-    }
+        console.log(IP + "FdS");
+	},
+	maxWeight: 35
 }).express('ip', 'path'));
 
 app.use(express.static("www"));
